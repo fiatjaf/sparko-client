@@ -1,0 +1,9 @@
+{
+  "name": "sparko-client",
+  "version": "0.0.1",
+  "dependencies": {
+    "eventsource": "^1.0.7",
+    "node-fetch": "^2.6.0"
+  },
+  "license": "ISC"
+}
