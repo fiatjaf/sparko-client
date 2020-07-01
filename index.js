@@ -38,8 +38,30 @@ function SparkoClient(url, key) {
   p.search = 'access-key=' + key
   const es = new EventSource(p.toString())
 
-  return {
+  const sparko = {
     call,
     es
   }
+
+  const events = [
+    'channel_opened',
+    'connect',
+    'disconnect',
+    'invoice_payment',
+    'invoice_creation',
+    'warning',
+    'forward_event',
+    'sendpay_success',
+    'sendpay_failure',
+    'coin_movement'
+  ]
+
+  events.forEach(typ => {
+    es.addEventListener(typ, e => {
+      let listener = sparko[typ]
+      if (listener) listener(JSON.parse(e.data))
+    })
+  })
+
+  return sparko
 }
