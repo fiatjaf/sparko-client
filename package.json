@@ -1,6 +1,7 @@
 {
   "name": "sparko-client",
   "version": "0.0.1",
+  "tags": ["lightning", "spark", "c-lightning", "lightningd", "sparko", "client"],
   "dependencies": {
     "eventsource": "^1.0.7",
     "node-fetch": "^2.6.0"

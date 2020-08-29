@@ -1,6 +1,6 @@
 # sparko-client
 
-A JavaScript client for [sparko](https://github.com/fiatjaf/lightningd-gjson-rpc/tree/master/cmd/sparko) (also partially compatible with [spark](https://github.com/shesek/spark-wallet)).
+A JavaScript client for [sparko](https://github.com/fiatjaf/sparko) (also partially compatible with [spark](https://github.com/shesek/spark-wallet)).
 
 ## Install
 
@@ -16,7 +16,7 @@ npm install sparko-client
 const sparko = require('sparko')('https://myspark.server', 'mykeywithanypermissions')
 
 // creating an invoice
-let {bolt11, preimage} = (await sparko.call('invoice', ['100sat', 'uniquelabel', 'desc']))
+let {bolt11, preimage} = await sparko.call('invoice', ['100sat', 'uniquelabel', 'desc'])
 
 // paying an invoice
 await sparko.call('pay', {bolt11: 'lnbc1...', maxfeepercent: 0.3, exemptfee: 1})
